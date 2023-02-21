@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Coding Bootcamp Testimonials Slider</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    :root{
+      --Dark-Blue: hsl(240, 38%, 20%);
+      --Grayish-Blue: hsl(240, 18%, 77%);
+    }
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+    body{
+      position: relative;
+      height: 100vh;
+      width: 100wh;
+      color: var(--Grayish-Blue);
+      font-family: 'Inter', sans-serif;
+    }
+    .container{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: url("./images/pattern-bg.svg") , url("images/pattern-curve.svg") , url("images/pattern-quotes.svg");
+      background-repeat: no-repeat;
+      background-position:70% 70% , 0 100% , 20% 40%;
+      background-size: 45%,40% , 5%;
+    }
+    .first-slide , .second-slide{
+      height: 100%;
+      width: 100%;
+      display: flex;
+    }
+    .text{
+      height: 100%;
+      width: 50%;
+      font-size: 32px;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 10% 0 10% 10%;
+
+    }
+
+    .infos{
+      width: 100%;
+      margin-top: 50px;
+      font-size: 24px;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+    }
+
+    .infos h3{
+      margin-right: 20px;
+      color: var(--Dark-Blue);
+    }
+
+    .photo{
+      height: 100%;
+      width: 50%;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+    }
+    .img-container{
+      width: 600px;
+      position: relative;
+    }
+    img{
+      width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      margin-left: -15%;
+    }
+    .buttons{
+      display: flex;
+      position: absolute;
+      bottom: -2%;
+      left: 0;
+    }
+    .btn-left , .btn-right{
+      cursor: pointer;
+      height: 35px;
+      width:50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #FFF;
+    }
+
+    .btn-left {
+      margin-right: 3px;
+      border-top-left-radius:20px ;
+      border-bottom-left-radius:20px ;
+    }
+    .btn-right {
+      border-top-right-radius:20px ;
+      border-bottom-right-radius:20px ;
+
+    }
+    .btn-img{
+      height: 20px;
+      width: 20px;
+    }
+
+    .hidden{
+      display: none;
+    }
+
+
+    @media only screen and (max-width: 1000px) {
+      .container{
+      width: 100%;
+      margin-bottom: 20px;
+      background: url("./images/pattern-bg.svg") , url("images/pattern-curve.svg") , url("images/pattern-quotes.svg");
+      background-repeat: no-repeat;
+      background-position:100% 13% , 0 100% , 20% 40%;
+      background-size: 90%,40% , 5%;
+    }
+      .first-slide , .second-slide{
+      height: 100%;
+      width: 100%;
+      margin-top: 20%;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    img{
+      margin-left: 0;
+    }
+
+    .img-container{
+      width: 80%;
+    }
+
+    .text{
+      width: 100%;
+      font-size: 24px;
+      text-align: center;
+      padding:0 15% 15% 15%;
+    }
+    .desc{
+      font-size: 24px;
+    }
+
+    .buttons{
+      display: flex;
+      position: absolute;
+      bottom: -2%;
+      left: 50%;
+      transform: translate(-50%);
+    }
+    .infos{
+     flex-direction: column;
+     margin-top: 10px;
+     font-size: 16px;
+    }
+}
+  
+    
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="first-slide">
+    <div class="text tanya-text" data-number="1">
+      <div>
+        <p>“ I’ve been interested in coding for a while but never taken the jump, until now. 
+          I couldn’t recommend this course enough. I’m now in the job of my dreams and so 
+          excited about the future. ”</p>
+          
+      </div>
+     
+           <div class="infos">
+          <h3>Tanya Sinclair</h3>
+          <p>UX Engineer</p>
+        </div>
+    </div>
+    <div class="text john-text hidden"  data-number="2">
+      <p >“ If you want to lay the best foundation possible I’d recommend taking this course. 
+        The depth the instructors go into is incredible. I now feel so confident about 
+        starting up as a professional developer. ”</p>
+        <div class="infos">
+          <h3>John Tarkpor</h3>
+          <p>Junior Front-end Developer</p>
+        </div>
+    </div>
+    <div class="photo">
+      <div class="img-container">
+      <img src="./images/image-tanya.jpg" alt="image-tanya" class="image-tanya"  data-number="1">
+      <img src="./images/image-john.jpg" alt="image-john" class="image-john hidden"  data-number="2">
+      <div class="buttons">
+        <div class="btn-left">
+          <
+        </div>
+        <div class="btn-right">>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+<!-- 
+  <div class="second-slide">
+    <div class="text">
+      <p class="desc">“ If you want to lay the best foundation possible I’d recommend taking this course. 
+        The depth the instructors go into is incredible. I now feel so confident about 
+        starting up as a professional developer. ”</p>
+        <div class="infos">
+          <h3>John Tarkpor</h3>
+          <p>Junior Front-end Developer</p>
+        </div>
+    </div>
+    <div class="photo">
+      <div class="img-container">
+        <img src="./images/image-john.jpg" alt="image-john">
+        <div class="buttons">
+          <div class="btn-left">
+            <
+          </div>
+          <div class="btn-right">>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  -->
+
+</div>
+  <script src="./script.js"></script>
+</body>
+</html>
